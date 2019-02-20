@@ -2,10 +2,10 @@ package test.com.roomnavigator
 
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_main.*
 
@@ -32,7 +32,7 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         // Sending data from one fragment to another fragment
-        buttonWelcomeMe.setOnClickListener{
+        /*buttonWelcomeMe.setOnClickListener{
 
             val name = enterName.text.toString()
             if(name.isEmpty()) {
@@ -42,7 +42,15 @@ class MainFragment : Fragment() {
                 action.myTitle = name
                 findNavController().navigate(action)
             }
+        }*/
+        btnInsert.setOnClickListener {
+            findNavController().navigate(MainFragmentDirections.actionMainFragmentToDetailFragment())
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+
     }
 
 
