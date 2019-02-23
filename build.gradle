@@ -23,7 +23,12 @@ allprojects {
         
     }
 }
-
+ext {
+    nav_version = "1.0.0-beta02"
+    roomVersion = '1.1.1'
+    archLifecycleVersion = '1.1.1'
+    coroutines = '0.26.1'
+}
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
