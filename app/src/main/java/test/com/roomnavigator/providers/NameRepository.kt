@@ -1,5 +1,6 @@
 package test.com.roomnavigator.providers
 
+import android.os.AsyncTask
 import androidx.annotation.WorkerThread
 import androidx.lifecycle.LiveData
 import test.com.roomnavigator.dao.NameDao
@@ -24,5 +25,18 @@ class NameRepository(private val nameDao: NameDao) {
     @WorkerThread
     suspend fun insert(name: Name) {
         nameDao.insert(name)
+        //InsertAsyncTask(nameDao).execute(name);
+
     }
+
+    private class InsertAsyncTask internal constructor(private val mAsyncTaskDao: NameDao) :
+        AsyncTask<Name, Void, Void>() {
+
+        override fun doInBackground(vararg params: Name): Void? {
+            mAsyncTaskDao.insert(params[0])
+            return null
+        }
+    }
+
+
 }
